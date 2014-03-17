@@ -1,0 +1,16 @@
+import javax.swing.*;
+import java.io.IOException;
+
+
+public class MainCode  
+{
+    
+
+    //TV myOtherTV = new TV();
+    //normal constructor
+    
+    TV televisionSet =  new TV("Samsung");
+    //overloaded constructor
+
+
+}

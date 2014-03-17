@@ -1,0 +1,252 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class TV extends JFrame implements ActionListener
+{
+    
+    private int channel;
+    private int volume;
+    private boolean Power;
+    private int answer;
+    private JButton Channel;
+    private JButton loud;
+    private JButton quiet;
+    private JButton off;
+    private JButton on;
+    private JButton mute;
+    private JButton CUp;
+    private JButton CDown;
+    private JTextArea Vinfo;
+    private JTextArea Cinfo;
+    
+    String Brand;
+
+
+    public TV()
+    {
+        
+        System.out.println("TV set created");
+        channel = 3;
+        volume = 6;
+        Power = false;
+        setTitle("Tv Remote");
+        setSize(800, 500);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(new FlowLayout());
+        
+        loud = new JButton("Volume Up");
+        add (loud);
+        quiet = new JButton("Volume Down");
+        add (quiet);
+        off = new JButton("Off");
+        add (off);
+        on = new JButton("On");
+        add (on);
+        mute = new JButton("Mute");
+        add (mute);
+        Vinfo = new JTextArea("Volume Level");
+        add (Vinfo);
+        CUp = new JButton("Channel Up");
+        add (CUp);
+        CDown = new JButton("Channel Down");
+        add (CDown);
+        Cinfo = new JTextArea("Channel");
+        add (Cinfo);
+        Channel = new JButton("Enter Channel");
+        add (Channel);
+        
+        loud.addActionListener(this);
+        quiet.addActionListener(this);
+        off.addActionListener(this);
+        mute.addActionListener(this);
+        CUp.addActionListener(this);
+        CDown.addActionListener(this);
+        Channel.addActionListener(this);
+        off.addActionListener(this);
+        on.addActionListener(this);
+        
+        Vinfo.setVisible(false);
+        Cinfo.setVisible(false);
+        loud.setVisible(false);
+        quiet.setVisible(false);
+        off.setVisible(false);
+        mute.setVisible(false);
+        CUp.setVisible(false);
+        CDown.setVisible(false);
+        loud.setVisible(false);
+        quiet.setVisible(false);
+        Channel.setVisible(false);
+        
+        on.setVisible(true);
+       
+        
+        validate();
+        
+
+ 
+    }
+    public TV(String m)
+    {
+        
+        System.out.println("Your New " + m + " TV is On");
+        channel = 3;
+        volume = 6;
+        Power = false;
+        setTitle("Tv Remote");
+        setSize(800, 500);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(new FlowLayout());
+        
+        loud = new JButton("Volume Up");
+        add (loud);
+        quiet = new JButton("Volume Down");
+        add (quiet);
+        off = new JButton("Off");
+        add (off);
+        on = new JButton("On");
+        add (on);
+        mute = new JButton("Mute");
+        add (mute);
+        Vinfo = new JTextArea("Volume Level");
+        add (Vinfo);
+        CUp = new JButton("Channel Up");
+        add (CUp);
+        CDown = new JButton("Channel Down");
+        add (CDown);
+        Cinfo = new JTextArea("Channel");
+        add (Cinfo);
+        Channel = new JButton("Enter Channel");
+        add (Channel);
+        
+        
+        loud.addActionListener(this);
+        quiet.addActionListener(this);
+        off.addActionListener(this);
+        mute.addActionListener(this);
+        CUp.addActionListener(this);
+        CDown.addActionListener(this);
+        Channel.addActionListener(this);
+        off.addActionListener(this);
+        on.addActionListener(this);
+        
+        Vinfo.setVisible(false);
+        Cinfo.setVisible(false);
+        loud.setVisible(false);
+        quiet.setVisible(false);
+        off.setVisible(false);
+        mute.setVisible(false);
+        CUp.setVisible(false);
+        CDown.setVisible(false);
+        loud.setVisible(false);
+        quiet.setVisible(false);
+        Channel.setVisible(false);
+        
+        on.setVisible(true);
+        
+        validate();
+        
+
+        setVisible(true);
+    }
+ 
+
+    public void Channel()
+    {
+        String answer = JOptionPane.showInputDialog(this, "What Channel Do You Want? ");
+        channel  = Integer.parseInt(answer);
+        Cinfo.setText("Channel =" + channel);
+        System.out.println("Channel Set to" + channel);
+        
+    }
+
+    public void channelUp()
+    {
+        channel =  channel + 1;
+        System.out.println("Channel increased by 1");
+        System.out.println("Channel =" + channel);
+        Cinfo.setText("Channel =" + channel);
+    }
+  
+    public void channelDown()
+    {
+        channel = channel - 1;
+        System.out.println("Channel decreased by 1");
+        System.out.println("Channel =" + channel);
+        Cinfo.setText("Channel = " + channel);
+    }
+    
+        
+    public void volumeUp()
+    {
+        volume = volume + 1;
+        System.out.println("Volume increased by 1");
+        System.out.println("Volume =" + volume);
+        Vinfo.setText("volume = " + volume);
+    }
+    
+    public void volumeDown()
+    {
+        volume = volume - 1;
+        System.out.println("Volume decreased by 1");
+        System.out.println("Volume: "+ volume);
+        Vinfo.setText("volume = " + volume);
+    }
+    
+        
+    public void On()
+    {
+         System.out.println("TV powered On");      
+        Power = (true);
+        off.setVisible(true);
+        on.setVisible(false);
+        loud.setVisible(true);
+        quiet.setVisible(true);
+        mute.setVisible(true);
+        CUp.setVisible(true);
+        CDown.setVisible(true);
+        Vinfo.setVisible(true);
+        Cinfo.setVisible(true);
+        Channel.setVisible(true);
+        
+        
+    }
+    public void Off()
+    {
+        Power = (false);
+        off.setVisible(false);
+        on.setVisible(true);
+        loud.setVisible(false);
+        quiet.setVisible(false);
+        mute.setVisible(false);
+        CUp.setVisible(false);
+        CDown.setVisible(false);
+        Vinfo.setVisible(false);
+        Cinfo.setVisible(false);
+        Channel.setVisible(false);
+        System.out.println("Tv powerd off");
+        
+        
+    }
+    public void mute()
+    {
+        volume = 0;
+        System.out.println("Volume set to 0");
+        Vinfo.setText("volume = " +volume );
+    }
+    
+    
+    public void actionPerformed(ActionEvent event)
+    {
+     if (event.getSource() == loud) volumeUp();
+     if (event.getSource() == quiet) volumeDown();
+     if (event.getSource() == CUp) channelUp();
+     if (event.getSource() == CDown) channelDown();
+     if (event.getSource() == on) On();
+     if (event.getSource() == off) Off();
+     if (Power = false) Off();
+     if (event.getSource() == mute) mute();
+     if (event.getSource() == Channel) Channel();
+        
+    }
+}
